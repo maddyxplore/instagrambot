@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 import time
 import datetime
+name = input("Enter your Username or Name: ")
+password = input("Enter your Password: ")
 date = datetime.datetime.now()
 date = int(date.strftime("%H"))
 if date >= 12 and date <=18 :
@@ -13,8 +15,8 @@ elif date >= 19 and date < 24 :
 browser = webdriver.Firefox(executable_path="C:\\Users\\madhan\\Documents\\py automation\\geckodriver-v0.26.0-win64\\geckodriver.exe")
 browser.get("https://www.instagram.com/")
 time.sleep(5)
-browser.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[2]/div/label/input").send_keys("jus_to_explore")
-browser.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[3]/div/label/input").send_keys("madhan@20")
+browser.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[2]/div/label/input").send_keys(name)
+browser.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[3]/div/label/input").send_keys(password)
 browser.find_element_by_xpath("/html/body/div[1]/section/main/article/div[2]/div[1]/div/form/div[4]/button/div").click()
 time.sleep(10)
 browser.find_element_by_xpath("/html/body/div[1]/section/main/div/div/div/div/button").click()
@@ -81,12 +83,3 @@ while(res):
       time.sleep(5)
       res = True
 browser.quit()
-"""time.sleep(2)
-            browser.get("https://www.instagram.com/")
-            while(res):
-                  j = "window.scrollTo("+str(i)+","+str(i+200)+")"
-                  i+=200
-                  browser.execute_script(j)
-                  time.sleep(2)
-                  if i>10000:
-                        break"""
